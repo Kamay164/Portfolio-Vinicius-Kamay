@@ -1,0 +1,10 @@
+# Evita que o Windows converta as quebras de linha e quebre o Prettier/ESLint.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff2 binary

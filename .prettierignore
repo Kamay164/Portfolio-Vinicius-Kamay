@@ -1,0 +1,12 @@
+dist/
+.astro/
+.vercel/
+node_modules/
+package-lock.json
+public/
+src/assets/brand/
+Referencia - Logo e identidade visual/
+# Documentação escrita à mão (tabelas, emojis) e páginas autocontidas geradas na Etapa 1.
+docs/
+CLAUDE.md
+README.md

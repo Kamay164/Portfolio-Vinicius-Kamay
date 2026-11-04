@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+
+import logo from '@/assets/brand/logo-horizontal.svg';
+import { siteConfig } from '@/data/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { whatsAppLink } from '@/lib/whatsapp';
+
+// TODO(etapa-4): esta página é só a verificação visual do setup (tokens, fonte e WhatsApp).
+// Ela é substituída pelo layout e pelas seções reais nas Etapas 4 e 5.
+const swatches = [
+  { name: 'ink', hex: '#0F1E36', className: 'bg-ink' },
+  { name: 'ink-2', hex: '#1E3253', className: 'bg-ink-2' },
+  { name: 'muted', hex: '#5A6578', className: 'bg-muted' },
+  { name: 'bg', hex: '#FBFBF9', className: 'bg-bg' },
+  { name: 'surface', hex: '#FFFFFF', className: 'bg-surface' },
+  { name: 'tint', hex: '#EEF5FF', className: 'bg-tint' },
+  { name: 'border', hex: '#E6E9EE', className: 'bg-border' },
+  { name: 'primary', hex: '#1565D8', className: 'bg-primary' },
+  { name: 'primary-hover', hex: '#0F52B5', className: 'bg-primary-hover' },
+  { name: 'accent', hex: '#00AAFF', className: 'bg-accent' },
+  { name: 'success', hex: '#0B7A57', className: 'bg-success' },
+  { name: 'error', hex: '#C62828', className: 'bg-error' },
+] as const;
+---
+
+<BaseLayout>
+  <main id="conteudo" class="container-page section-y">
+    <Image src={logo} alt={siteConfig.name} class="h-12 w-auto" />
+
+    <p class="text-eyebrow text-primary mt-16 uppercase">Etapa 3 · Setup</p>
+    <h1 class="text-display mt-4 max-w-3xl">
+      Portfólio em <span class="highlight-primary">construção</span>.
+    </h1>
+    <p class="text-muted mt-6 max-w-xl">
+      Página provisória para conferir o setup: tokens da marca, Plus Jakarta Sans e o link do
+      WhatsApp. O conteúdo real chega nas próximas etapas.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href={whatsAppLink('general')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-pill bg-primary hover:bg-primary-hover inline-flex items-center gap-2 px-6 py-3.5 font-semibold text-white transition-colors"
+      >
+        Falar no WhatsApp ↗<span class="sr-only">(abre em nova aba)</span>
+      </a>
+      <a
+        href={`mailto:${siteConfig.email}`}
+        class="rounded-pill bg-surface text-ink border-border inline-flex items-center border-[1.5px] px-6 py-3.5 font-semibold"
+      >
+        {siteConfig.email}
+      </a>
+    </div>
+
+    <section class="mt-20" aria-labelledby="verificacao">
+      <h2 id="verificacao" class="text-h3">
+        Verificação do setup
+      </h2>
+      <p class="text-muted mt-1 text-sm">Será removida na Etapa 4.</p>
+
+      <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        {swatches.map((swatch) => (
+          <li class="bg-surface rounded-card border-border shadow-soft border p-3">
+            <span class={`${swatch.className} border-ink/10 block h-14 rounded-xl border`} />
+            <p class="mt-2 text-sm font-semibold">{swatch.name}</p>
+            <p class="text-muted text-xs">{swatch.hex}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="bg-tint rounded-card mt-8 grid gap-4 p-6 md:grid-cols-2">
+        <div>
+          <p class="text-eyebrow text-muted uppercase">Display · 800</p>
+          <p class="text-display">Sites que funcionam</p>
+        </div>
+        <div>
+          <p class="text-eyebrow text-muted uppercase">H2 · 800</p>
+          <p class="text-h2">Projetos recentes</p>
+          <p class="text-eyebrow text-muted mt-4 uppercase">H3 · 700</p>
+          <p class="text-h3">Landing page para barbearia</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,132 @@
+/*
+ * Tokens de design: a fonte da verdade é docs/brand.md.
+ * No Tailwind v4 tudo o que está em @theme vira utilitário (bg-primary, rounded-card, shadow-soft…).
+ * "static" força a emissão de todas as variáveis, porque o CSS base abaixo também as usa.
+ */
+@import 'tailwindcss';
+
+@theme static {
+  /* Só as cores da marca: classes como bg-blue-500 deixam de existir de propósito. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-ink: #0f1e36;
+  --color-ink-2: #1e3253;
+  --color-muted: #5a6578;
+  --color-bg: #fbfbf9;
+  --color-surface: #ffffff;
+  --color-tint: #eef5ff;
+  --color-border: #e6e9ee;
+  --color-primary: #1565d8;
+  --color-primary-hover: #0f52b5;
+  /* Decorativo: 2,5:1 sobre o fundo claro, então NUNCA em texto. */
+  --color-accent: #00aaff;
+  --color-success: #0b7a57;
+  --color-error: #c62828;
+
+  --font-sans:
+    'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 800;
+
+  --text-h2: clamp(1.875rem, 4vw, 3rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 800;
+
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 700;
+
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.12em;
+  --text-eyebrow--font-weight: 600;
+
+  /* Formas generosas deixam o visual amigável (não corporativo). */
+  --radius-field: 0.75rem;
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 1px 2px rgb(15 30 54 / 0.06), 0 8px 24px rgb(15 30 54 / 0.06);
+}
+
+/* Largura e gutter padrão do conteúdo. */
+@utility container-page {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* Respiro vertical entre seções. */
+@utility section-y {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+/* Marca-texto suave sob a palavra-chave de um título. */
+@utility highlight-primary {
+  color: var(--color-primary);
+  background-image: linear-gradient(
+    transparent 62%,
+    color-mix(in srgb, var(--color-primary) 18%, transparent) 0
+  );
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Evita que o header fixo cubra o título da seção ao navegar por âncora. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /*
+   * Anel de foco: o cobalto passa de 3:1 sobre o fundo claro; o azul da logo (#00aaff) não passa.
+   * Em seções escuras (data-theme="dark") o anel troca para o azul da logo, que lá tem 6,5:1.
+   */
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  [data-theme='dark'] :focus-visible {
+    outline-color: var(--color-accent);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+}

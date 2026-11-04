@@ -1,0 +1,29 @@
+# Dependências e build
+node_modules/
+dist/
+.astro/
+.vercel/
+
+# Variáveis de ambiente (segredos). Só o .env.example vai para o Git.
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional e Google Drive
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+.tmp.driveupload/
+.tmp.drivedownload/
+
+# Editores
+.idea/
+.vscode/
+
+# Referências pesadas (contém o .ai e a foto original de 2,5 MB)
+Referencia - Logo e identidade visual/
