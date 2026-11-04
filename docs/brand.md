@@ -84,7 +84,7 @@ Opções descartadas (histórico): `docs/etapa-1-opcoes/`.
 
 ### WhatsApp
 
-O verde oficial do WhatsApp (`#25D366`) com texto branco tem contraste de 1,98:1 e reprova. **Recomendação:** o botão de WhatsApp usa a cor `primary` com o ícone do WhatsApp, para manter a paleta coesa. Alternativa acessível: fundo `#25D366` com texto `ink` (8,41:1). A decisão final fica para a Etapa 4.
+O verde oficial do WhatsApp (`#25D366`) com texto branco tem contraste de 1,98:1 e reprova. **Decisão (Etapa 4):** o botão flutuante usa o verde do WhatsApp (`--color-whatsapp #25D366`, hover `--color-whatsapp-hover #1EBE5B`) com ícone `ink`. Contrastes: ink sobre whatsapp 8,41:1; ink sobre whatsapp-hover 6,81:1. Nunca usar texto branco sobre esse verde. Os demais botões do site continuam em `primary`.
 
 ### Pronto para a Etapa 3 (CSS custom properties)
 
@@ -102,6 +102,8 @@ O verde oficial do WhatsApp (`#25D366`) com texto branco tem contraste de 1,98:1
   --color-accent: #00AAFF;
   --color-success: #0B7A57;
   --color-error: #C62828;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebe5b;
 }
 ```
 

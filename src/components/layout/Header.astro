@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+
+import logo from '@/assets/brand/logo-horizontal.svg';
+import Button from '@/components/ui/Button.astro';
+import { mainNav } from '@/data/navigation';
+import { siteConfig } from '@/data/site';
+import { whatsAppLink } from '@/lib/whatsapp';
+
+const quoteUrl = whatsAppLink('general');
+---
+
+<header data-header class="sticky top-0 z-40 border-b border-border/70 bg-bg/85 backdrop-blur">
+  <div class="container-page flex h-16 items-center justify-between gap-6">
+    <a href="/" aria-label={`${siteConfig.name}, página inicial`} class="shrink-0">
+      <Image src={logo} alt="" class="h-9 w-auto sm:h-10" />
+    </a>
+
+    <nav aria-label="Principal" class="hidden items-center gap-8 lg:flex">
+      <ul class="flex items-center gap-8">
+        {mainNav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-[0.9375rem] font-medium transition-colors hover:text-primary"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <Button href={quoteUrl} size="sm" external>
+        Pedir orçamento
+      </Button>
+    </nav>
+
+    <button
+      type="button"
+      data-menu-button
+      aria-expanded="false"
+      aria-controls="menu-mobile"
+      aria-label="Menu"
+      class="group/menu inline-flex size-11 items-center justify-center rounded-pill border border-border bg-surface lg:hidden"
+    >
+      <svg
+        class="size-5 group-aria-expanded/menu:hidden"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      <svg
+        class="hidden size-5 group-aria-expanded/menu:block"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="menu-mobile" data-menu-panel hidden class="border-t border-border bg-bg lg:hidden">
+    <nav aria-label="Principal" class="container-page py-4">
+      <ul>
+        {mainNav.map((item) => (
+          <li class="border-b border-border">
+            <a href={item.href} class="block py-3.5 text-lg font-semibold">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <Button href={quoteUrl} size="lg" external class="mt-5 w-full">
+        Pedir orçamento
+      </Button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Menu do celular. Sem JavaScript o painel simplesmente não abre, e o botão flutuante de
+  // WhatsApp continua disponível como caminho de contato.
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const button = header?.querySelector<HTMLButtonElement>('[data-menu-button]') ?? null;
+  const panel = header?.querySelector<HTMLElement>('[data-menu-panel]') ?? null;
+
+  if (header && button && panel) {
+    // Mesmo ponto de corte do `lg` do Tailwind (64rem). O menu de desktop não cabe em 768px.
+    const desktop = window.matchMedia('(min-width: 64rem)');
+
+    const setOpen = (open: boolean): void => {
+      button.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+    };
+
+    button.addEventListener('click', () => {
+      setOpen(button.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Fecha ao escolher um link (a âncora rola a página, e o menu aberto cobriria o destino).
+    panel.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !panel.hidden) {
+        setOpen(false);
+        button.focus();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!panel.hidden && event.target instanceof Node && !header.contains(event.target)) {
+        setOpen(false);
+      }
+    });
+
+    // Girar o celular ou ampliar a janela até o layout de desktop não pode deixar o painel aberto.
+    desktop.addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+  }
+</script>

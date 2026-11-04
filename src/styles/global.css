@@ -22,6 +22,9 @@
   --color-accent: #00aaff;
   --color-success: #0b7a57;
   --color-error: #c62828;
+  /* Só no botão flutuante de WhatsApp (ícone marinho por cima: 8,4:1). Nunca com texto branco: 2:1. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebe5b;
 
   --font-sans:
     'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;

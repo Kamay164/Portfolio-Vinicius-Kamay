@@ -119,6 +119,10 @@ Cada etapa é independente e só começa com autorização.
 - Verificação: `npm run verify` sem erros nem avisos e URL da Vercel no ar.
 - Até o lançamento o site sai com `noindex` (variável `PUBLIC_ALLOW_INDEXING`, ver `.env.example`).
 
+**Etapa 4: Layout (feito)**
+- Menu de desktop só a partir de `lg` (64rem): em 768 px ele não cabe. Botão de WhatsApp flutuante em verde `#25D366` com ícone marinho; rodapé claro (`bg-tint`).
+- Navegação em `src/data/navigation.ts`. QA: axe 0 violações, sem rolagem horizontal de 360 a 1920 px, menu por teclado.
+
 **Etapa 5: Seções**
 - Conteúdo vem de `src/data/*.ts` (tipado), não espalhado no markup.
 - Verificação: build ok e layout correto em 360, 768, 1280 e 1920 px.
@@ -163,7 +167,8 @@ Cada etapa é independente e só começa com autorização.
 │   │   ├── projects/       # screenshots otimizáveis
 │   │   └── profile/        # foto
 │   ├── components/
-│   │   ├── ui/             # Button, Badge, Card, Container...
+│   │   ├── layout/         # Header (menu mobile), Footer, WhatsAppFloat
+│   │   ├── ui/             # Button, Badge, Card, Section, ExternalMark, WhatsAppIcon
 │   │   └── sections/       # Hero, Projects, Services, Process, About, Faq, Cta
 │   ├── data/               # site.ts, projects.ts, services.ts, faq.ts (tipados)
 │   ├── layouts/            # BaseLayout.astro (SEO head)
@@ -215,7 +220,7 @@ Cada etapa é independente e só começa com autorização.
 | 1 | Identidade visual | ✅ Concluída |
 | 2 | Conteúdo e arquitetura | ✅ Concluída (com pendências de dados, ver checklist em `docs/conteudo.md`) |
 | 3 | Setup do projeto | ✅ Concluída (aguardando o primeiro deploy na Vercel) |
-| 4 | Layout base e componentes | ⏳ Não iniciada |
+| 4 | Layout base e componentes | ✅ Concluída (aguardando teste na Vercel) |
 | 5 | Seções da landing | ⏳ Não iniciada |
 | 6 | Imagens dos projetos | ⏳ Não iniciada |
 | 7 | Formulário e contato | ⏳ Não iniciada |
@@ -239,9 +244,10 @@ A lista completa e atualizada está no fim de `docs/conteudo.md`. Itens crítico
 
 _(anotar aqui o que surgir fora do escopo da etapa atual)_
 
-- **Etapa 4:** decidir a cor do botão de WhatsApp. Recomendação: `primary` com o ícone do WhatsApp (o verde `#25D366` com texto branco reprova no contraste). Ver `docs/brand.md`.
 - **Etapa 9:** revisar o `public/site.webmanifest` (nome, descrição, cores) junto com o restante do SEO.
-- **Etapa 4:** substituir a `src/pages/index.astro` provisória (verificação de tokens) pelo layout e pelas seções reais.
+- **Etapa 5:** substituir a `src/pages/index.astro` provisória (showcase dos componentes) pelo Hero e pelas seções reais.
+- **Etapa 7:** incluir "Política de Privacidade" em `footerNav` (`src/data/navigation.ts`).
+- **Etapa 8:** destacar o item ativo do menu conforme a rolagem (scroll-spy).
 - **Etapa 9:** o anel de foco usa `primary` em fundo claro e `accent` em `data-theme="dark"` (o azul da logo não passa 3:1 no claro). Conferir no QA.
 - **Etapa 11:** definir `SITE_URL` (domínio) e `PUBLIC_ALLOW_INDEXING=true` na Vercel. Sem isso o site continua `noindex`.
 - **Manutenção:** revisar o ESLint 9 → 10 quando o `eslint-plugin-jsx-a11y` suportar. O `npm audit` aponta 14 avisos moderados só em ferramentas de desenvolvimento (cadeia do ESLint, via `minimatch`), nenhum em produção.

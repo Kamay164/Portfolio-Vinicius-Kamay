@@ -1,0 +1,19 @@
+---
+interface Props {
+  /** `li` para cards dentro de uma lista; `article` para conteúdo que faz sentido sozinho. */
+  as?: 'div' | 'article' | 'li';
+  tone?: 'surface' | 'tint';
+  class?: string;
+}
+
+const { as: Tag = 'div', tone = 'surface', class: className } = Astro.props;
+
+const tones = {
+  surface: 'border border-border bg-surface shadow-soft',
+  tint: 'bg-tint',
+} as const satisfies Record<NonNullable<Props['tone']>, string>;
+---
+
+<Tag class:list={['rounded-card p-6', tones[tone], className]}>
+  <slot />
+</Tag>

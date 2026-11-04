@@ -1,87 +1,95 @@
 ---
-import { Image } from 'astro:assets';
-
-import logo from '@/assets/brand/logo-horizontal.svg';
-import { siteConfig } from '@/data/site';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import Section from '@/components/ui/Section.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { whatsAppLink } from '@/lib/whatsapp';
 
-// TODO(etapa-4): esta página é só a verificação visual do setup (tokens, fonte e WhatsApp).
-// Ela é substituída pelo layout e pelas seções reais nas Etapas 4 e 5.
-const swatches = [
-  { name: 'ink', hex: '#0F1E36', className: 'bg-ink' },
-  { name: 'ink-2', hex: '#1E3253', className: 'bg-ink-2' },
-  { name: 'muted', hex: '#5A6578', className: 'bg-muted' },
-  { name: 'bg', hex: '#FBFBF9', className: 'bg-bg' },
-  { name: 'surface', hex: '#FFFFFF', className: 'bg-surface' },
-  { name: 'tint', hex: '#EEF5FF', className: 'bg-tint' },
-  { name: 'border', hex: '#E6E9EE', className: 'bg-border' },
-  { name: 'primary', hex: '#1565D8', className: 'bg-primary' },
-  { name: 'primary-hover', hex: '#0F52B5', className: 'bg-primary-hover' },
-  { name: 'accent', hex: '#00AAFF', className: 'bg-accent' },
-  { name: 'success', hex: '#0B7A57', className: 'bg-success' },
-  { name: 'error', hex: '#C62828', className: 'bg-error' },
+// TODO(etapa-5): esta página é só a verificação visual dos componentes da Etapa 4. As seções
+// abaixo existem para dar destino às âncoras do menu e são substituídas pelo Hero e pelas
+// seções reais. Os tons alternam para mostrar como as seções se separam.
+const placeholders = [
+  { id: 'projetos', eyebrow: 'Portfólio', title: 'Projetos que já estão no ar', tone: 'tint' },
+  { id: 'servicos', eyebrow: 'Serviços', title: 'Qual é o seu momento?', tone: 'default' },
+  { id: 'processo', eyebrow: 'Processo', title: 'Do primeiro "oi" ao site no ar', tone: 'tint' },
+  { id: 'sobre', eyebrow: 'Sobre mim', title: 'Prazer, eu sou o Vinicius.', tone: 'default' },
+  { id: 'faq', eyebrow: 'Dúvidas', title: 'Perguntas frequentes', tone: 'tint' },
+  { id: 'contato', eyebrow: 'Contato', title: 'Vamos tirar o seu site do papel?', tone: 'default' },
 ] as const;
 ---
 
 <BaseLayout>
-  <main id="conteudo" class="container-page section-y">
-    <Image src={logo} alt={siteConfig.name} class="h-12 w-auto" />
-
-    <p class="text-eyebrow text-primary mt-16 uppercase">Etapa 3 · Setup</p>
-    <h1 class="text-display mt-4 max-w-3xl">
-      Portfólio em <span class="highlight-primary">construção</span>.
+  <section id="inicio" aria-labelledby="inicio-title" class="container-page section-y">
+    <p class="text-eyebrow text-primary uppercase">Etapa 4 · Layout e componentes</p>
+    <h1 id="inicio-title" class="text-display mt-4 max-w-3xl">
+      Componentes em <span class="highlight-primary">teste</span>.
     </h1>
-    <p class="text-muted mt-6 max-w-xl">
-      Página provisória para conferir o setup: tokens da marca, Plus Jakarta Sans e o link do
-      WhatsApp. O conteúdo real chega nas próximas etapas.
+    <p class="mt-6 max-w-xl text-muted">
+      Página provisória para conferir o cabeçalho, o menu do celular, o rodapé e o botão flutuante
+      de WhatsApp. Role a página e use o menu para testar as âncoras.
     </p>
 
     <div class="mt-8 flex flex-wrap gap-3">
-      <a
-        href={whatsAppLink('general')}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="rounded-pill bg-primary hover:bg-primary-hover inline-flex items-center gap-2 px-6 py-3.5 font-semibold text-white transition-colors"
-      >
-        Falar no WhatsApp ↗<span class="sr-only">(abre em nova aba)</span>
-      </a>
-      <a
-        href={`mailto:${siteConfig.email}`}
-        class="rounded-pill bg-surface text-ink border-border inline-flex items-center border-[1.5px] px-6 py-3.5 font-semibold"
-      >
-        {siteConfig.email}
-      </a>
+      <Button href={whatsAppLink('general')} size="lg" external>
+        Pedir orçamento
+      </Button>
+      <Button href="/#projetos" variant="secondary" size="lg">
+        Ver projetos
+      </Button>
     </div>
 
-    <section class="mt-20" aria-labelledby="verificacao">
-      <h2 id="verificacao" class="text-h3">
-        Verificação do setup
-      </h2>
-      <p class="text-muted mt-1 text-sm">Será removida na Etapa 4.</p>
+    <div class="mt-12 flex flex-wrap items-center gap-3">
+      <Badge tone="primary">Cliente</Badge>
+      <Badge>Projeto conceito</Badge>
+      <Badge tone="surface">Projeto conceito</Badge>
+    </div>
 
-      <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-        {swatches.map((swatch) => (
-          <li class="bg-surface rounded-card border-border shadow-soft border p-3">
-            <span class={`${swatch.className} border-ink/10 block h-14 rounded-xl border`} />
-            <p class="mt-2 text-sm font-semibold">{swatch.name}</p>
-            <p class="text-muted text-xs">{swatch.hex}</p>
-          </li>
-        ))}
-      </ul>
+    <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      <Card as="li">
+        <div class="h-32 rounded-xl bg-linear-to-br from-accent to-primary"></div>
+        <div class="mt-5 flex items-center gap-2">
+          <Badge tone="primary">Cliente</Badge>
+        </div>
+        <h2 class="text-h3 mt-3">Conversor PDF</h2>
+        <p class="mt-2 text-muted">Card com sombra suave e borda fina.</p>
+        <Button
+          href="https://conversorpdf-six.vercel.app/"
+          variant="secondary"
+          size="sm"
+          external
+          class="mt-5"
+        >
+          Ver site
+        </Button>
+      </Card>
+      <Card as="li">
+        <div class="h-32 rounded-xl bg-linear-to-br from-primary to-ink"></div>
+        <div class="mt-5 flex items-center gap-2">
+          <Badge>Projeto conceito</Badge>
+        </div>
+        <h2 class="text-h3 mt-3">Barbearia Freitas</h2>
+        <p class="mt-2 text-muted">Mesmo card, outra miniatura.</p>
+        <Button
+          href="https://barbearia-freitas-sand.vercel.app/"
+          variant="secondary"
+          size="sm"
+          external
+          class="mt-5"
+        >
+          Ver site
+        </Button>
+      </Card>
+      <Card as="li" tone="tint">
+        <h2 class="text-h3">Card em azul-bebê</h2>
+        <p class="mt-2 text-muted">Variante sem borda, para destaques dentro de seções claras.</p>
+      </Card>
+    </ul>
+  </section>
 
-      <div class="bg-tint rounded-card mt-8 grid gap-4 p-6 md:grid-cols-2">
-        <div>
-          <p class="text-eyebrow text-muted uppercase">Display · 800</p>
-          <p class="text-display">Sites que funcionam</p>
-        </div>
-        <div>
-          <p class="text-eyebrow text-muted uppercase">H2 · 800</p>
-          <p class="text-h2">Projetos recentes</p>
-          <p class="text-eyebrow text-muted mt-4 uppercase">H3 · 700</p>
-          <p class="text-h3">Landing page para barbearia</p>
-        </div>
-      </div>
-    </section>
-  </main>
+  {placeholders.map((section) => (
+    <Section id={section.id} eyebrow={section.eyebrow} title={section.title} tone={section.tone}>
+      <p class="text-muted">Conteúdo desta seção entra na Etapa 5.</p>
+    </Section>
+  ))}
 </BaseLayout>

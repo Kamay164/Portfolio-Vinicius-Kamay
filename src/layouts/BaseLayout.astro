@@ -6,6 +6,9 @@ import '@fontsource/plus-jakarta-sans/latin-700.css';
 import '@fontsource/plus-jakarta-sans/latin-800.css';
 import '@/styles/global.css';
 
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import WhatsAppFloat from '@/components/layout/WhatsAppFloat.astro';
 import { siteConfig } from '@/data/site';
 
 interface Props {
@@ -44,6 +47,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     >
       Ir para o conteúdo
     </a>
-    <slot />
+    <Header />
+    <!-- tabindex="-1": o link "Ir para o conteúdo" move o foco de verdade para cá. -->
+    <main id="conteudo" tabindex="-1" class="outline-none">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
   </body>
 </html>

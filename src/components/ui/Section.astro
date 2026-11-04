@@ -1,0 +1,39 @@
+---
+interface Props {
+  /** Âncora da seção (usada pelo menu). O título ganha o id `${id}-title`. */
+  id: string;
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  /** `tint` alterna o fundo (azul-bebê) para separar seções vizinhas. */
+  tone?: 'default' | 'tint';
+  class?: string;
+}
+
+const { id, eyebrow, title, intro, tone = 'default', class: className } = Astro.props;
+
+// Só liga a região ao título quando ele existe, para o leitor de tela anunciar a seção pelo nome.
+const titleId = title ? `${id}-title` : undefined;
+const hasHeading = Boolean(eyebrow || title || intro);
+---
+
+<section
+  id={id}
+  aria-labelledby={titleId}
+  class:list={['section-y', tone === 'tint' && 'bg-tint', className]}
+>
+  <div class="container-page">
+    {hasHeading && (
+      <header class="mb-12 max-w-2xl md:mb-16">
+        {eyebrow && <p class="text-eyebrow text-primary uppercase">{eyebrow}</p>}
+        {title && (
+          <h2 id={titleId} class="text-h2 mt-3">
+            {title}
+          </h2>
+        )}
+        {intro && <p class="text-muted mt-4">{intro}</p>}
+      </header>
+    )}
+    <slot />
+  </div>
+</section>

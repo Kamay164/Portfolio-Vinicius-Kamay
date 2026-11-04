@@ -1,0 +1,26 @@
+---
+interface Props {
+  /** `tint` e `surface` para o selo "Projeto conceito"; `primary` para o selo "Cliente". */
+  tone?: 'tint' | 'surface' | 'primary';
+  class?: string;
+}
+
+const { tone = 'tint', class: className } = Astro.props;
+
+// `surface` serve para quando o selo está sobre um fundo `tint` e precisa se destacar dele.
+const tones = {
+  tint: 'bg-tint text-ink',
+  surface: 'border border-border bg-surface text-ink',
+  primary: 'bg-primary text-white',
+} as const satisfies Record<NonNullable<Props['tone']>, string>;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded-pill px-2.5 py-1 text-xs font-semibold',
+    tones[tone],
+    className,
+  ]}
+>
+  <slot />
+</span>
