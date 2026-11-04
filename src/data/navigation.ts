@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 export const mainNav: readonly NavItem[] = [
-  { label: 'Projetos', href: '/#projetos' },
+  { label: 'Projetos', href: '/projetos' },
   { label: 'Serviços', href: '/#servicos' },
   { label: 'Como funciona', href: '/#processo' },
   { label: 'Sobre', href: '/#sobre' },
@@ -16,7 +16,7 @@ export const mainNav: readonly NavItem[] = [
 
 // TODO(etapa-7): incluir "Política de Privacidade" aqui quando a página existir.
 export const footerNav: readonly NavItem[] = [
-  { label: 'Projetos', href: '/#projetos' },
+  { label: 'Projetos', href: '/projetos' },
   { label: 'Serviços', href: '/#servicos' },
   { label: 'Dúvidas', href: '/#faq' },
 ];

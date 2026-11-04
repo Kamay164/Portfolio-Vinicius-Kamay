@@ -35,9 +35,10 @@ SEO é prioridade alta: o site deve ser o melhor possível para buscadores.
 | Visual | Amigável e não corporativo: botões em pílula, cards com raio de 20 px, sombras quase invisíveis |
 | Stack | **Astro + Tailwind CSS + TypeScript** (saída estática) |
 | Contato | WhatsApp (links `wa.me` com mensagem pronta) **+ formulário** (serviço gratuito, sem backend próprio) |
-| Projetos | **Cards na landing que levam ao site publicado** (nova aba). Sem páginas de case. Páginas extras só se servirem ao SEO e forem aprovadas |
-| Projetos fictícios | Exibir com selo discreto **"Projeto conceito"** |
-| Conversor PDF | Cliente real, pode exibir com o nome **Tecno Construções** |
+| Estrutura | **Site com várias páginas** (decisão de 04/11/2026, por SEO): Início, uma página por serviço, Projetos e Privacidade. Plano das páginas de serviço aguardando aprovação |
+| Projetos | Cards que levam ao site publicado (nova aba), sem páginas de case. Dados em `src/content/projects/` (1 `.md` por site). Home mostra até 6 destaques; `/projetos` lista todos com filtro por tipo. O Vinicius vai criar ~6 sites novos |
+| Selos dos projetos | **Só o tipo** (Landing page, Site institucional, Ferramenta web). Sem "Cliente" nem "Projeto conceito" (decisão revista em 04/11/2026) |
+| Conversor PDF | Cliente real (Tecno Construções). No card aparece só como "Conversor PDF" |
 | Idioma | Português do Brasil |
 | Conteúdo | **Fonte da verdade: `docs/conteudo.md`** (textos, ordem das seções, mensagens de WhatsApp, FAQ) |
 | Atendimento | Todo o Brasil, 100% online (sem cidade no texto) |
@@ -45,7 +46,8 @@ SEO é prioridade alta: o site deve ser o melhor possível para buscadores.
 | Serviços | Landing page · Site institucional · Ferramenta web sob medida · Reforma de site |
 | Tom | Primeira pessoa, próximo. Sem preço no site (só orçamento) |
 | Rodapé | E-mail visível (viniciuskamay123@gmail.com), Instagram e GitHub |
-| Depoimentos | Seção preparada, renderizada só quando houver depoimento real |
+| Avaliações | Seção pronta (`src/data/testimonials.ts`), aparece sozinha quando houver o 1º depoimento real |
+| Hero | H1 em duas linhas: "Quem não é visto não é lembrado." + "Criação de sites para o seu negócio aparecer no Google." Texto completo em `docs/conteudo.md` |
 | Hospedagem | Vercel (fluxo atual do Vinicius: GitHub → deploy automático) |
 
 ## Contexto do Vinicius (como ele trabalha)
@@ -223,7 +225,8 @@ Cada etapa é independente e só começa com autorização.
 | 2 | Conteúdo e arquitetura | ✅ Concluída (com pendências de dados, ver checklist em `docs/conteudo.md`) |
 | 3 | Setup do projeto | ✅ Concluída (aguardando o primeiro deploy na Vercel) |
 | 4 | Layout base e componentes | ✅ Concluída (aguardando teste na Vercel) |
-| 5 | Seções da landing | ✅ Concluída (aguardando teste na Vercel) |
+| 5 | Seções da landing | ✅ Concluída e revisada em 04/11 (novo hero, Sobre, projetos em coleção, `/projetos` com filtro, avaliações ocultas) |
+| 5b | Páginas de serviço (SEO) | ⏳ Plano proposto, aguardando aprovação |
 | 6 | Imagens dos projetos | ⏳ Não iniciada |
 | 7 | Formulário e contato | ⏳ Não iniciada |
 | 8 | Animações | ⏳ Não iniciada |
@@ -247,9 +250,10 @@ A lista completa e atualizada está no fim de `docs/conteudo.md`. Itens crítico
 _(anotar aqui o que surgir fora do escopo da etapa atual)_
 
 - **Etapa 9:** revisar o `public/site.webmanifest` (nome, descrição, cores) junto com o restante do SEO.
-- **Etapa 6:** trocar as miniaturas provisórias dos cards (`Projects.astro`) pelos prints reais.
-- **Etapa 7:** seção Depoimento (só com depoimento real) e formulário no Contato (`src/data/contact.ts` tem um TODO).
-- **Pendente (Vinicius):** confirmar a descrição do Conversor PDF e se a Tecno autoriza "relatório semanal"; revisar o texto de Sobre; prazo de resposta do contato (opcional).
+- **Etapa 5b:** criar as páginas de serviço depois que o Vinicius aprovar o plano (URLs, palavras-chave, estrutura). Ao criar, o menu "Serviços" passa a apontar para elas.
+- **Etapa 6:** prints reais nos cards: campo `image` no `.md` de cada projeto (o card já usa a imagem se ela existir).
+- **Etapa 7:** formulário no Contato (`src/data/contact.ts` tem um TODO).
+- **Pendente (Vinicius):** confirmar se a Tecno autoriza "relatório semanal"; prazo de resposta do contato (opcional).
 - **Etapa 7:** incluir "Política de Privacidade" em `footerNav` (`src/data/navigation.ts`).
 - **Etapa 8:** destacar o item ativo do menu conforme a rolagem (scroll-spy).
 - **Etapa 9:** o anel de foco usa `primary` em fundo claro e `accent` em `data-theme="dark"` (o azul da logo não passa 3:1 no claro). Conferir no QA.

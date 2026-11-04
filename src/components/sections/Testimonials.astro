@@ -1,0 +1,25 @@
+---
+import Card from '@/components/ui/Card.astro';
+import Section from '@/components/ui/Section.astro';
+import { testimonials, testimonialsSection } from '@/data/testimonials';
+
+const { eyebrow, title } = testimonialsSection;
+---
+
+{testimonials.length > 0 && (
+  <Section id="avaliacoes" eyebrow={eyebrow} title={title}>
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {testimonials.map((item) => (
+        <Card as="li">
+          <figure>
+            <blockquote class="text-lg">“{item.quote}”</blockquote>
+            <figcaption class="mt-5">
+              <span class="block font-semibold">{item.author}</span>
+              {item.role && <span class="block text-sm text-muted">{item.role}</span>}
+            </figcaption>
+          </figure>
+        </Card>
+      ))}
+    </ul>
+  </Section>
+)}

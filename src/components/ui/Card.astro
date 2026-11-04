@@ -1,12 +1,15 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+
+// Atributos extras (ex.: data-*) passam direto para o elemento, para scripts poderem achá-lo.
+interface Props extends HTMLAttributes<'div'> {
   /** `li` para cards dentro de uma lista; `article` para conteúdo que faz sentido sozinho. */
   as?: 'div' | 'article' | 'li';
   tone?: 'surface' | 'tint';
   class?: string;
 }
 
-const { as: Tag = 'div', tone = 'surface', class: className } = Astro.props;
+const { as: Tag = 'div', tone = 'surface', class: className, ...rest } = Astro.props;
 
 const tones = {
   surface: 'border border-border bg-surface shadow-soft',
@@ -14,6 +17,6 @@ const tones = {
 } as const satisfies Record<NonNullable<Props['tone']>, string>;
 ---
 
-<Tag class:list={['rounded-card p-6', tones[tone], className]}>
+<Tag class:list={['rounded-card p-6', tones[tone], className]} {...rest}>
   <slot />
 </Tag>

@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+
+import monogram from '@/assets/brand/vk-monograma.svg';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import { projectCategoryLabels } from '@/data/project-categories';
+import { projectsSection } from '@/data/projects-section';
+import type { ProjectEntry } from '@/lib/projects';
+
+interface Props {
+  project: ProjectEntry;
+  /** Nível do título do card: h3 dentro de uma seção da home, h2 na página /projetos. */
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { project, headingLevel = 'h3' } = Astro.props;
+const { name, category, description, url, image, imageAlt } = project.data;
+const Heading = headingLevel;
+---
+
+<Card as="li" class="flex flex-col" data-project-category={category}>
+  {image ? (
+    <Image
+      src={image}
+      alt={imageAlt ?? `Página inicial do site ${name}`}
+      widths={[360, 560, 720]}
+      sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 90vw"
+      class="aspect-[16/10] w-full rounded-xl object-cover object-top"
+    />
+  ) : (
+    // TODO(etapa-6): miniatura provisória até existir o print do site.
+    <div
+      aria-hidden="true"
+      class="flex aspect-[16/10] items-center justify-center rounded-xl bg-linear-to-br from-tint to-accent/30"
+    >
+      <Image src={monogram} alt="" class="size-14 rounded-2xl opacity-90" />
+    </div>
+  )}
+  <Badge class="mt-5 self-start">{projectCategoryLabels[category]}</Badge>
+  <Heading class="text-h3 mt-3">{name}</Heading>
+  <p class="mt-2 flex-1 text-[0.9375rem] text-muted">{description}</p>
+  <Button href={url} variant="secondary" size="sm" external class="mt-5 self-start">
+    {projectsSection.buttonLabel}
+    <span class="sr-only">: {name}</span>
+  </Button>
+</Card>

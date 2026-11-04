@@ -2,8 +2,16 @@
 
 export interface HeroContent {
   readonly eyebrow: string;
-  /** Título em duas partes: `highlight` ganha o marca-texto azul. */
-  readonly title: { readonly before: string; readonly highlight: string; readonly after: string };
+  /**
+   * O H1 tem duas linhas: o ditado (gancho) e a frase com a palavra-chave "criação de sites",
+   * que é a que importa para o Google. `highlight` ganha o marca-texto azul.
+   */
+  readonly title: {
+    readonly hook: string;
+    readonly before: string;
+    readonly highlight: string;
+    readonly after: string;
+  };
   readonly subtitle: string;
   readonly primaryCta: string;
   readonly secondaryCta: string;
@@ -13,20 +21,17 @@ export interface HeroContent {
 }
 
 export const hero: HeroContent = {
-  eyebrow: 'Desenvolvedor de sites · Atendo todo o Brasil',
+  eyebrow: 'Criação de sites e landing pages',
   title: {
-    before: 'Vamos colocar o seu negócio na internet, ',
-    highlight: 'do jeito certo',
-    after: '?',
+    hook: 'Quem não é visto não é lembrado.',
+    before: 'Criação de sites para o seu negócio ',
+    highlight: 'aparecer no Google',
+    after: '.',
   },
   subtitle:
-    'Eu crio sites e landing pages rápidos, bonitos e pensados para o celular, para que quem chega até você entenda o que você faz e chame no WhatsApp. Você conversa direto comigo, do primeiro contato à publicação.',
-  primaryCta: 'Pedir orçamento no WhatsApp',
+    'Eu crio sites e landing pages rápidos, modernos e preparados para você aparecer no Google e transformar visitas em clientes. Me conta o que você precisa e eu te mando um orçamento.',
+  primaryCta: 'Pedir orçamento',
   secondaryCta: 'Ver projetos',
-  assurances: [
-    'Atendimento direto comigo',
-    '100% online, para todo o Brasil',
-    'Orçamento sem compromisso',
-  ],
+  assurances: ['Atendimento rápido', 'Otimizado para o Google', 'Sites leves e rápidos'],
   photoAlt: 'Retrato de Vinicius Kamay, desenvolvedor de sites, em fundo azul',
 };

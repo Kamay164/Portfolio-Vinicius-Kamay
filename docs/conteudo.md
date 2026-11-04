@@ -55,34 +55,35 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 
 ## 4. Hero
 
-- **Eyebrow:** Desenvolvedor de sites · Atendo todo o Brasil
-- **H1 (decidido na Etapa 5):** Vamos colocar o seu negócio na internet, **do jeito certo**? (linguagem próxima e humana, em forma de convite; o subtítulo abaixo explica o que eu faço)
-- **Subtítulo:** Eu crio sites e landing pages rápidos, bonitos e pensados para o celular, para que quem chega até você entenda o que você faz e fale com você no WhatsApp. Você conversa direto comigo, do primeiro contato à publicação.
-- **CTA primário:** Pedir orçamento no WhatsApp → M1
-- **CTA secundário:** Ver projetos → `#projetos`
-- **Selos abaixo dos botões (3 itens):**
-  - Atendimento direto comigo
-  - 100% online, para todo o Brasil
-  - Orçamento sem compromisso
+> Revisado em 04/11/2026 (pedido do Vinicius: linguagem mais próxima, foco em ser encontrado no Google, não só WhatsApp).
+
+- **Eyebrow:** Criação de sites e landing pages
+- **H1 (duas linhas, as duas dentro do H1):**
+  - Linha 1 (gancho): Quem não é visto não é lembrado.
+  - Linha 2 (palavra-chave): Criação de sites para o seu negócio **aparecer no Google**.
+- **Subtítulo:** Eu crio sites e landing pages rápidos, modernos e preparados para você aparecer no Google e transformar visitas em clientes. Me conta o que você precisa e eu te mando um orçamento.
+- **CTA primário:** Pedir orçamento → M1
+- **CTA secundário:** Ver projetos → `/projetos`
+- **Selos abaixo dos botões:** Atendimento rápido · Otimizado para o Google · Sites leves e rápidos
 - **Visual:** foto de perfil (fundo azul) com o monograma VK como elemento decorativo.
 
 ## 5. Projetos
 
-- **Eyebrow:** Portfólio
-- **H2:** Projetos que já estão no ar
-- **Intro:** Um trabalho para cliente real e alguns projetos conceito, criados para mostrar como eu resolvo cada tipo de negócio. Clique para ver cada site funcionando.
-- **Legenda do selo:** _"Projeto conceito: marca fictícia, criada para portfólio."_ (tooltip ou nota abaixo da grade)
+- **Onde ficam os dados:** `src/content/projects/` (um arquivo `.md` por site; instruções em `LEIA-ME.md.txt`).
+- **Home:** até 6 destaques (`featured: true`) + botão "Ver todos os projetos" → `/projetos`.
+- **Página `/projetos`:** H1 "Projetos de criação de sites", filtro por tipo e CTA final "Gostou de algum? Vamos criar o seu."
+- **Selo do card:** só o tipo (Landing page · Site institucional · Ferramenta web). **Sem** "Cliente" ou "Projeto conceito" (decisão de 04/11/2026).
+- **Eyebrow:** Portfólio · **H2:** Projetos que já estão no ar · **Intro:** Alguns dos sites que eu criei. Clique em qualquer um para ver funcionando.
 
-| Ordem | Nome | Selo | Categoria | Descrição do card | Link |
-|---|---|---|---|---|---|
-| 1 (destaque) | Conversor PDF: Tecno Construções | **Cliente** | Ferramenta web sob medida | Ferramenta que transforma fotos da obra em um relatório semanal em PDF, pronto para enviar. Acaba com a montagem manual de relatórios. | https://conversorpdf-six.vercel.app/ |
-| 2 | Óticas Visão | Projeto conceito | Landing page | Landing page para ótica: óculos de grau, de sol e lentes de contato, com visual elegante e foco em atendimento personalizado. | https://ticas-vis-o.vercel.app/ |
-| 3 | Academia +Fit | Projeto conceito | Landing page | Landing page para academia, com modalidades, convite para aula experimental grátis e chamada direta para matrícula. | https://academia-fit-nine.vercel.app/ |
-| 4 | Barbearia Freitas | Projeto conceito | Landing page | Site para barbearia, com serviços e preços, equipe, galeria e agendamento pelo WhatsApp. | https://barbearia-freitas-sand.vercel.app/ |
+| Ordem | Nome | Tipo | Descrição do card | Link |
+|---|---|---|---|---|
+| 1 | Conversor PDF | Ferramenta web | Ferramenta que transforma fotos da obra em um relatório semanal em PDF, pronto para enviar. Acaba com a montagem manual de relatórios. | https://conversorpdf-six.vercel.app/ |
+| 2 | Óticas Visão | Landing page | Landing page para ótica, com óculos de grau, de sol e lentes de contato, visual elegante e foco em atendimento personalizado. | https://ticas-vis-o.vercel.app/ |
+| 3 | Academia +Fit | Landing page | Landing page para academia, com modalidades, convite para aula experimental grátis e chamada direta para matrícula. | https://academia-fit-nine.vercel.app/ |
+| 4 | Barbearia Freitas | Landing page | Site para barbearia, com serviços e preços, equipe, galeria e agendamento pelo WhatsApp. | https://barbearia-freitas-sand.vercel.app/ |
 
 - **Botão de cada card:** Ver site ↗ (abre em nova aba)
-- `TODO(vinicius)`: confirmar se a descrição do Conversor PDF está correta e se a Tecno autoriza mencionar "relatório semanal".
-- O card da Tecno pode exibir **"Ferramenta interna, acesso restrito"** se o site não for público. `TODO(vinicius)`: confirmar.
+- `TODO(vinicius)`: confirmar se a Tecno autoriza mencionar "relatório semanal".
 
 ## 6. Serviços ("Por onde começar")
 
@@ -128,21 +129,20 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 
 - **Eyebrow:** Sobre mim
 - **H2:** Prazer, eu sou o Vinicius.
-- **Texto (base no seu Workana, para revisar):**
-  > Atuo há mais de 4 anos no mercado digital, unindo design visual e tecnologia. Sou formado como Técnico em Desenvolvimento de Sistemas, com foco em desenvolvimento web (HTML, CSS, JavaScript e integração com bancos de dados SQL).
+- **Texto (aprovado em 04/11/2026):**
+  > São mais de 4 anos no mercado digital, entre design e desenvolvimento. Já criei landing pages, sistemas web e identidades visuais para negócios de vários segmentos.
   >
-  > Já criei landing pages, sistemas web e identidades visuais para clientes de diversos nichos. Meu trabalho une a sensibilidade do design à robustez do código: páginas rápidas, responsivas e alinhadas aos objetivos de quem as contrata.
-  >
-  > Cuido de cada projeto de perto, do primeiro contato à publicação, e explico tudo sem "tecniquês".
+  > Hoje o meu foco é um só: fazer o seu negócio aparecer na internet com um site que passe confiança e traga clientes. Você me conta o que precisa, e eu cuido da parte técnica.
+- **Botão:** Vamos conversar sobre o seu site → M1
 - **Destaques:** Mais de 4 anos no mercado digital · Técnico em Desenvolvimento de Sistemas. `TODO(vinicius)`: quer citar um número de projetos entregues? Só com dado exato.
 - **Tecnologias (linha discreta):** HTML, CSS, JavaScript, Astro, Tailwind CSS (React fora da lista por não estar confirmado).
 - **Links:** Instagram (https://www.instagram.com/kamay.png/) · GitHub (https://github.com/Kamay164)
 
-## 10. Depoimento (oculto até ter conteúdo)
+## 10. Avaliações (oculta até ter conteúdo)
 
-- **H2:** Quem já trabalhou comigo
+- **Eyebrow:** Avaliações · **H2:** O que dizem sobre o meu trabalho
 - **Conteúdo:** `TODO(vinicius)`: texto do depoimento, nome e cargo (Tecno Construções), com autorização para publicar.
-- Regra técnica: a seção só é renderizada se houver ao menos 1 depoimento em `src/data/testimonials.ts`.
+- Regra técnica (pronta): a seção só aparece se houver ao menos 1 depoimento real em `src/data/testimonials.ts`.
 
 ## 11. Perguntas frequentes
 
@@ -233,10 +233,10 @@ Quais dados o formulário coleta (nome, WhatsApp, e-mail, mensagem) · finalidad
 - [x] Escolher o H1 do hero
 - [x] Número de WhatsApp
 - [x] Link do GitHub
-- [ ] Revisar o texto de "Sobre" (base no Workana) e decidir se cito um número de projetos
+- [x] Texto de "Sobre" reescrito e aprovado
 - [x] Confirmar a lista de tecnologias (sem React)
 - [x] "Identidade visual" não entra como serviço (mantidos os 4)
-- [ ] Confirmar a descrição do Conversor PDF e se o site é público
+- [ ] Confirmar se a Tecno autoriza "relatório semanal" na descrição do Conversor PDF
 - [ ] Depoimento da Tecno (texto, nome, cargo e autorização)
 - [x] Prazo médio de entrega (3 a 5 dias úteis para landing page)
 - [x] Textos: combinado na conversa (resposta genérica)

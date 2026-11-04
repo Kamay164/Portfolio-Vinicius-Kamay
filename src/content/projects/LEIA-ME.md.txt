@@ -1,0 +1,13 @@
+Como adicionar um projeto ao portfólio
+======================================
+
+1. Copie um dos arquivos .md desta pasta e renomeie (ex.: padaria-pao-quente.md).
+   O nome do arquivo vira o identificador do projeto: só letras minúsculas, números e hífen.
+2. Troque os campos:
+   - name: nome do site
+   - category: landing-page | site-institucional | ferramenta-web
+   - description: uma ou duas frases (20 a 220 caracteres)
+   - url: endereço do site publicado (com https://)
+   - featured: true para aparecer nos destaques da página inicial (até 6 aparecem)
+   - order: ordem de exibição (menor aparece primeiro)
+3. Faça o commit e o push. Se faltar algum campo, o build da Vercel falha e mostra qual.

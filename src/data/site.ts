@@ -22,9 +22,9 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: 'Vinicius Kamay',
-  title: 'Vinicius Kamay | Criação de sites e landing pages',
+  title: 'Criação de sites e landing pages | Vinicius Kamay',
   description:
-    'Sites e landing pages rápidos, bonitos e feitos para trazer clientes. Atendo empresas de todo o Brasil. Peça seu orçamento sem compromisso.',
+    'Criação de sites e landing pages rápidos, modernos e prontos para aparecer no Google. Atendo empresas de todo o Brasil. Peça seu orçamento.',
   email: 'viniciuskamay123@gmail.com',
   whatsapp: {
     number: '5537999935176',

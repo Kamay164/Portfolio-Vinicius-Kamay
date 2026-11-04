@@ -3,12 +3,14 @@ import { Image } from 'astro:assets';
 
 import photo from '@/assets/profile/vinicius.jpg';
 import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
 import ExternalMark from '@/components/ui/ExternalMark.astro';
 import Section from '@/components/ui/Section.astro';
 import { aboutSection } from '@/data/about';
 import { siteConfig } from '@/data/site';
+import { whatsAppLink } from '@/lib/whatsapp';
 
-const { eyebrow, title, paragraphs, highlights, technologies, photoAlt } = aboutSection;
+const { eyebrow, title, paragraphs, cta, highlights, technologies, photoAlt } = aboutSection;
 ---
 
 <Section id="sobre" eyebrow={eyebrow} title={title} tone="tint">
@@ -56,6 +58,10 @@ const { eyebrow, title, paragraphs, highlights, technologies, photoAlt } = about
           </li>
         ))}
       </ul>
+
+      <Button href={whatsAppLink('general')} size="lg" external class="mt-8">
+        {cta}
+      </Button>
     </div>
   </div>
 </Section>
