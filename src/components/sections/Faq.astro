@@ -1,0 +1,26 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { faqItems, faqSection } from '@/data/faq';
+
+const { eyebrow, title } = faqSection;
+---
+
+<Section id="faq" eyebrow={eyebrow} title={title}>
+  <div class="max-w-3xl space-y-3">
+    {faqItems.map((item) => (
+      // <details> nativo: abre por teclado e leitor de tela sem JavaScript.
+      <details class="group rounded-card border border-border bg-surface px-6 shadow-soft">
+        <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold [&::-webkit-details-marker]:hidden">
+          {item.question}
+          <span
+            aria-hidden="true"
+            class="shrink-0 text-2xl leading-none text-primary transition-transform group-open:rotate-45"
+          >
+            +
+          </span>
+        </summary>
+        <p class="pb-5 text-muted">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</Section>

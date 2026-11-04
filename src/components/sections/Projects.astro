@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+
+import monogram from '@/assets/brand/vk-monograma.svg';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import Section from '@/components/ui/Section.astro';
+import { projects, projectsSection } from '@/data/projects';
+
+const { eyebrow, title, intro, conceptNote, buttonLabel } = projectsSection;
+const hasConcept = projects.some((project) => project.kind === 'concept');
+---
+
+<Section id="projetos" eyebrow={eyebrow} title={title} intro={intro} tone="tint">
+  <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {projects.map((project) => (
+      <Card as="li" class="flex flex-col">
+        {/* TODO(etapa-6): trocar esta miniatura provisória pelo print real do site. */}
+        <div
+          aria-hidden="true"
+          class="flex aspect-[16/10] items-center justify-center rounded-xl bg-linear-to-br from-tint to-accent/30"
+        >
+          <Image src={monogram} alt="" class="size-14 rounded-2xl opacity-90" />
+        </div>
+        <div class="mt-5 flex flex-wrap items-center gap-2">
+          {project.kind === 'client' ? (
+            <Badge tone="primary">Cliente</Badge>
+          ) : (
+            <Badge>Projeto conceito</Badge>
+          )}
+          <span class="text-sm text-muted">{project.category}</span>
+        </div>
+        <h3 class="text-h3 mt-3">{project.name}</h3>
+        <p class="mt-2 flex-1 text-[0.9375rem] text-muted">{project.description}</p>
+        <Button href={project.url} variant="secondary" size="sm" external class="mt-5 self-start">
+          {buttonLabel}
+          <span class="sr-only">: {project.name}</span>
+        </Button>
+      </Card>
+    ))}
+  </ul>
+  {hasConcept && <p class="mt-8 text-sm text-muted">{conceptNote}</p>}
+</Section>

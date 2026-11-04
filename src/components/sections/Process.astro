@@ -1,0 +1,31 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { processSection, processSteps } from '@/data/process';
+import { whatsAppLink } from '@/lib/whatsapp';
+
+const { eyebrow, title, intro, cta } = processSection;
+---
+
+<Section id="processo" eyebrow={eyebrow} title={title} intro={intro}>
+  <ol class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    {processSteps.map((step, index) => (
+      <li>
+        <span
+          aria-hidden="true"
+          class="flex size-11 items-center justify-center rounded-pill bg-primary font-bold text-white"
+        >
+          {index + 1}
+        </span>
+        <h3 class="text-h3 mt-5">
+          <span class="sr-only">Passo {index + 1}: </span>
+          {step.title}
+        </h3>
+        <p class="mt-2 text-muted">{step.description}</p>
+      </li>
+    ))}
+  </ol>
+  <Button href={whatsAppLink('general')} size="lg" external class="mt-12">
+    {cta}
+  </Button>
+</Section>

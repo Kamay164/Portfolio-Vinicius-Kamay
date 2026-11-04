@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+
+import monogram from '@/assets/brand/vk-monograma.svg';
+import photo from '@/assets/profile/vinicius.jpg';
+import Button from '@/components/ui/Button.astro';
+import { hero } from '@/data/hero';
+import { whatsAppLink } from '@/lib/whatsapp';
+
+const { eyebrow, title, subtitle, primaryCta, secondaryCta, assurances, photoAlt } = hero;
+---
+
+<section
+  id="inicio"
+  aria-labelledby="inicio-title"
+  class="section-y overflow-x-clip pt-12 sm:pt-16 lg:pt-20"
+>
+  <div class="container-page grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+    <div>
+      <p class="text-eyebrow text-primary uppercase leading-snug">{eyebrow}</p>
+      <h1 id="inicio-title" class="text-display mt-5">
+        {title.before}
+        <span class="highlight-primary">{title.highlight}</span>
+        {title.after}
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-muted">{subtitle}</p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button href={whatsAppLink('general')} size="lg" external>
+          {primaryCta}
+        </Button>
+        <Button href="#projetos" variant="secondary" size="lg">
+          {secondaryCta}
+        </Button>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] font-medium text-ink-2">
+        {assurances.map((item) => (
+          <li class="flex items-center gap-2">
+            <span aria-hidden="true" class="size-1.5 rounded-pill bg-accent"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
+      <div aria-hidden="true" class="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-tint"></div>
+      <Image
+        src={photo}
+        alt={photoAlt}
+        widths={[320, 480, 640, 800]}
+        sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 90vw"
+        loading="eager"
+        fetchpriority="high"
+        class="aspect-square w-full rounded-[2rem] object-cover shadow-soft"
+      />
+      <Image
+        src={monogram}
+        alt=""
+        class="absolute -bottom-5 -left-3 size-16 rounded-2xl shadow-soft sm:-left-5 sm:size-20"
+      />
+    </div>
+  </div>
+</section>

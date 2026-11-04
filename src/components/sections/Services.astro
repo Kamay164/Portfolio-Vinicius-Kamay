@@ -1,0 +1,30 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Card from '@/components/ui/Card.astro';
+import Section from '@/components/ui/Section.astro';
+import { services, servicesSection } from '@/data/services';
+import { whatsAppLink } from '@/lib/whatsapp';
+
+const { eyebrow, title, intro } = servicesSection;
+---
+
+<Section id="servicos" eyebrow={eyebrow} title={title} intro={intro}>
+  <ul class="grid gap-6 sm:grid-cols-2">
+    {services.map((service) => (
+      <Card as="li" class="flex flex-col p-8">
+        <h3 class="text-h3">{service.title}</h3>
+        <p class="mt-3 font-semibold text-primary">{service.situation}</p>
+        <p class="mt-2 flex-1 text-muted">{service.description}</p>
+        <Button
+          href={whatsAppLink(service.message)}
+          variant="secondary"
+          size="sm"
+          external
+          class="mt-6 self-start"
+        >
+          {service.cta}
+        </Button>
+      </Card>
+    ))}
+  </ul>
+</Section>

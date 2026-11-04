@@ -1,0 +1,19 @@
+---
+import Card from '@/components/ui/Card.astro';
+import Section from '@/components/ui/Section.astro';
+import { differentiators, differentiatorsSection } from '@/data/differentiators';
+
+const { eyebrow, title } = differentiatorsSection;
+---
+
+<Section id="diferenciais" eyebrow={eyebrow} title={title} tone="tint">
+  <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {differentiators.map((item) => (
+      <Card as="li">
+        <span aria-hidden="true" class="block h-1 w-8 rounded-pill bg-accent"></span>
+        <h3 class="text-h3 mt-4">{item.title}</h3>
+        <p class="mt-2 text-muted">{item.description}</p>
+      </Card>
+    ))}
+  </ul>
+</Section>

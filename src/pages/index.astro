@@ -1,95 +1,25 @@
 ---
-import Badge from '@/components/ui/Badge.astro';
-import Button from '@/components/ui/Button.astro';
-import Card from '@/components/ui/Card.astro';
-import Section from '@/components/ui/Section.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+import Differentiators from '@/components/sections/Differentiators.astro';
+import Faq from '@/components/sections/Faq.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Process from '@/components/sections/Process.astro';
+import Projects from '@/components/sections/Projects.astro';
+import Services from '@/components/sections/Services.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { whatsAppLink } from '@/lib/whatsapp';
 
-// TODO(etapa-5): esta página é só a verificação visual dos componentes da Etapa 4. As seções
-// abaixo existem para dar destino às âncoras do menu e são substituídas pelo Hero e pelas
-// seções reais. Os tons alternam para mostrar como as seções se separam.
-const placeholders = [
-  { id: 'projetos', eyebrow: 'Portfólio', title: 'Projetos que já estão no ar', tone: 'tint' },
-  { id: 'servicos', eyebrow: 'Serviços', title: 'Qual é o seu momento?', tone: 'default' },
-  { id: 'processo', eyebrow: 'Processo', title: 'Do primeiro "oi" ao site no ar', tone: 'tint' },
-  { id: 'sobre', eyebrow: 'Sobre mim', title: 'Prazer, eu sou o Vinicius.', tone: 'default' },
-  { id: 'faq', eyebrow: 'Dúvidas', title: 'Perguntas frequentes', tone: 'tint' },
-  { id: 'contato', eyebrow: 'Contato', title: 'Vamos tirar o seu site do papel?', tone: 'default' },
-] as const;
+// Ordem e fundos (alternados para separar as seções): docs/conteudo.md, seção 2.
+// TODO(etapa-7): a seção "Depoimento" só entra quando houver depoimento real em src/data/testimonials.ts.
 ---
 
 <BaseLayout>
-  <section id="inicio" aria-labelledby="inicio-title" class="container-page section-y">
-    <p class="text-eyebrow text-primary uppercase">Etapa 4 · Layout e componentes</p>
-    <h1 id="inicio-title" class="text-display mt-4 max-w-3xl">
-      Componentes em <span class="highlight-primary">teste</span>.
-    </h1>
-    <p class="mt-6 max-w-xl text-muted">
-      Página provisória para conferir o cabeçalho, o menu do celular, o rodapé e o botão flutuante
-      de WhatsApp. Role a página e use o menu para testar as âncoras.
-    </p>
-
-    <div class="mt-8 flex flex-wrap gap-3">
-      <Button href={whatsAppLink('general')} size="lg" external>
-        Pedir orçamento
-      </Button>
-      <Button href="/#projetos" variant="secondary" size="lg">
-        Ver projetos
-      </Button>
-    </div>
-
-    <div class="mt-12 flex flex-wrap items-center gap-3">
-      <Badge tone="primary">Cliente</Badge>
-      <Badge>Projeto conceito</Badge>
-      <Badge tone="surface">Projeto conceito</Badge>
-    </div>
-
-    <ul class="mt-12 grid gap-6 md:grid-cols-3">
-      <Card as="li">
-        <div class="h-32 rounded-xl bg-linear-to-br from-accent to-primary"></div>
-        <div class="mt-5 flex items-center gap-2">
-          <Badge tone="primary">Cliente</Badge>
-        </div>
-        <h2 class="text-h3 mt-3">Conversor PDF</h2>
-        <p class="mt-2 text-muted">Card com sombra suave e borda fina.</p>
-        <Button
-          href="https://conversorpdf-six.vercel.app/"
-          variant="secondary"
-          size="sm"
-          external
-          class="mt-5"
-        >
-          Ver site
-        </Button>
-      </Card>
-      <Card as="li">
-        <div class="h-32 rounded-xl bg-linear-to-br from-primary to-ink"></div>
-        <div class="mt-5 flex items-center gap-2">
-          <Badge>Projeto conceito</Badge>
-        </div>
-        <h2 class="text-h3 mt-3">Barbearia Freitas</h2>
-        <p class="mt-2 text-muted">Mesmo card, outra miniatura.</p>
-        <Button
-          href="https://barbearia-freitas-sand.vercel.app/"
-          variant="secondary"
-          size="sm"
-          external
-          class="mt-5"
-        >
-          Ver site
-        </Button>
-      </Card>
-      <Card as="li" tone="tint">
-        <h2 class="text-h3">Card em azul-bebê</h2>
-        <p class="mt-2 text-muted">Variante sem borda, para destaques dentro de seções claras.</p>
-      </Card>
-    </ul>
-  </section>
-
-  {placeholders.map((section) => (
-    <Section id={section.id} eyebrow={section.eyebrow} title={section.title} tone={section.tone}>
-      <p class="text-muted">Conteúdo desta seção entra na Etapa 5.</p>
-    </Section>
-  ))}
+  <Hero />
+  <Projects />
+  <Services />
+  <Differentiators />
+  <Process />
+  <About />
+  <Faq />
+  <Contact />
 </BaseLayout>

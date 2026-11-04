@@ -123,7 +123,9 @@ Cada etapa é independente e só começa com autorização.
 - Menu de desktop só a partir de `lg` (64rem): em 768 px ele não cabe. Botão de WhatsApp flutuante em verde `#25D366` com ícone marinho; rodapé claro (`bg-tint`).
 - Navegação em `src/data/navigation.ts`. QA: axe 0 violações, sem rolagem horizontal de 360 a 1920 px, menu por teclado.
 
-**Etapa 5: Seções**
+**Etapa 5: Seções (feito)**
+- H1: "Vamos colocar o seu negócio na internet, do jeito certo?". Ordem: Hero, Projetos, Serviços, Diferenciais, Processo, Sobre, FAQ, Contato (faixa marinha). FAQ com `<details>` nativo. Foto otimizada em `src/assets/profile/vinicius.jpg` (1000 px).
+- Dados em `src/data/*.ts`; seções em `src/components/sections/`. Projetos usam miniatura provisória (monograma) até a Etapa 6.
 - Conteúdo vem de `src/data/*.ts` (tipado), não espalhado no markup.
 - Verificação: build ok e layout correto em 360, 768, 1280 e 1920 px.
 
@@ -221,7 +223,7 @@ Cada etapa é independente e só começa com autorização.
 | 2 | Conteúdo e arquitetura | ✅ Concluída (com pendências de dados, ver checklist em `docs/conteudo.md`) |
 | 3 | Setup do projeto | ✅ Concluída (aguardando o primeiro deploy na Vercel) |
 | 4 | Layout base e componentes | ✅ Concluída (aguardando teste na Vercel) |
-| 5 | Seções da landing | ⏳ Não iniciada |
+| 5 | Seções da landing | ✅ Concluída (aguardando teste na Vercel) |
 | 6 | Imagens dos projetos | ⏳ Não iniciada |
 | 7 | Formulário e contato | ⏳ Não iniciada |
 | 8 | Animações | ⏳ Não iniciada |
@@ -234,9 +236,9 @@ Cada etapa é independente e só começa com autorização.
 A lista completa e atualizada está no fim de `docs/conteudo.md`. Itens críticos para o lançamento:
 
 - [x] Número de WhatsApp
-- [ ] Escolha do H1 do hero (A, B ou C)
+- [x] H1 do hero
 - [x] Link do GitHub e base da seção "Sobre" (falta revisão)
-- [ ] Respostas da FAQ: prazo, domínio/hospedagem, suporte
+- [x] Respostas da FAQ (prazo 3–5 dias úteis, domínio "depende", ajustes 7 dias)
 - [ ] Depoimento da Tecno (opcional)
 - [ ] Domínio próprio (recomendado para SEO) ou subdomínio da Vercel
 
@@ -245,7 +247,9 @@ A lista completa e atualizada está no fim de `docs/conteudo.md`. Itens crítico
 _(anotar aqui o que surgir fora do escopo da etapa atual)_
 
 - **Etapa 9:** revisar o `public/site.webmanifest` (nome, descrição, cores) junto com o restante do SEO.
-- **Etapa 5:** substituir a `src/pages/index.astro` provisória (showcase dos componentes) pelo Hero e pelas seções reais.
+- **Etapa 6:** trocar as miniaturas provisórias dos cards (`Projects.astro`) pelos prints reais.
+- **Etapa 7:** seção Depoimento (só com depoimento real) e formulário no Contato (`src/data/contact.ts` tem um TODO).
+- **Pendente (Vinicius):** confirmar a descrição do Conversor PDF e se a Tecno autoriza "relatório semanal"; revisar o texto de Sobre; prazo de resposta do contato (opcional).
 - **Etapa 7:** incluir "Política de Privacidade" em `footerNav` (`src/data/navigation.ts`).
 - **Etapa 8:** destacar o item ativo do menu conforme a rolagem (scroll-spy).
 - **Etapa 9:** o anel de foco usa `primary` em fundo claro e `accent` em `data-theme="dark"` (o azul da logo não passa 3:1 no claro). Conferir no QA.

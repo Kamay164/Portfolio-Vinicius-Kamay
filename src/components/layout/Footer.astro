@@ -16,8 +16,8 @@ const labelClass = 'text-eyebrow uppercase text-muted';
 
 <footer class="bg-tint pt-16 pb-28 md:pb-12">
   <div class="container-page">
-    <div class="grid gap-10 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
-      <div class="sm:col-span-2 md:col-span-1">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.4fr_0.8fr]">
+      <div class="sm:col-span-2 lg:col-span-1">
         <a href="/" aria-label={`${siteConfig.name}, página inicial`} class="inline-block">
           <Image src={logo} alt="" class="h-10 w-auto" />
         </a>
@@ -53,12 +53,12 @@ const labelClass = 'text-eyebrow uppercase text-muted';
               rel="noopener noreferrer"
               class={linkClass}
             >
-              WhatsApp {siteConfig.whatsapp.display}
+              WhatsApp <span class="whitespace-nowrap">{siteConfig.whatsapp.display}</span>
               <ExternalMark />
             </a>
           </li>
           <li>
-            <a href={`mailto:${siteConfig.email}`} class={`${linkClass} break-all`}>
+            <a href={`mailto:${siteConfig.email}`} class={`${linkClass} break-words`}>
               {siteConfig.email}
             </a>
           </li>
@@ -83,8 +83,7 @@ const labelClass = 'text-eyebrow uppercase text-muted';
     </div>
 
     <p class="mt-12 border-t border-ink/10 pt-6 text-sm text-muted">
-      © {year}
-      {siteConfig.name}. Todos os direitos reservados.
+      © {year} {siteConfig.name}. Todos os direitos reservados.
     </p>
   </div>
 </footer>

@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+
+import photo from '@/assets/profile/vinicius.jpg';
+import Badge from '@/components/ui/Badge.astro';
+import ExternalMark from '@/components/ui/ExternalMark.astro';
+import Section from '@/components/ui/Section.astro';
+import { aboutSection } from '@/data/about';
+import { siteConfig } from '@/data/site';
+
+const { eyebrow, title, paragraphs, highlights, technologies, photoAlt } = aboutSection;
+---
+
+<Section id="sobre" eyebrow={eyebrow} title={title} tone="tint">
+  <div class="grid items-start gap-10 md:grid-cols-[0.7fr_1.3fr] md:gap-14">
+    <Image
+      src={photo}
+      alt={photoAlt}
+      widths={[240, 360, 480]}
+      sizes="(min-width: 768px) 20rem, 60vw"
+      class="aspect-square w-full max-w-xs rounded-[2rem] object-cover shadow-soft"
+    />
+    <div>
+      <div class="max-w-2xl space-y-4">
+        {paragraphs.map((text) => (
+          <p>{text}</p>
+        ))}
+      </div>
+
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {highlights.map((item) => (
+          <li>
+            <Badge tone="surface" class="px-3 py-1.5 text-sm">
+              {item}
+            </Badge>
+          </li>
+        ))}
+      </ul>
+
+      <p class="mt-6 text-sm text-muted">
+        <span class="font-semibold text-ink-2">Tecnologias:</span> {technologies.join(' · ')}
+      </p>
+
+      <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-semibold">
+        {siteConfig.socials.map((social) => (
+          <li>
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary underline underline-offset-4 transition-colors hover:text-primary-hover"
+            >
+              {social.label}
+              <ExternalMark />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>

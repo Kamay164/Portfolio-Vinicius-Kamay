@@ -56,10 +56,7 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 ## 4. Hero
 
 - **Eyebrow:** Desenvolvedor de sites · Atendo todo o Brasil
-- **H1 (escolher uma opção):**
-  - **A (recomendada):** Sites que fazem sua empresa ser encontrada **e escolhida**.
-  - **B:** Seu site pronto para trazer clientes, **não só para existir**.
-  - **C:** Sites e landing pages feitos **sob medida** para o seu negócio.
+- **H1 (decidido na Etapa 5):** Vamos colocar o seu negócio na internet, **do jeito certo**? (linguagem próxima e humana, em forma de convite; o subtítulo abaixo explica o que eu faço)
 - **Subtítulo:** Eu crio sites e landing pages rápidos, bonitos e pensados para o celular, para que quem chega até você entenda o que você faz e fale com você no WhatsApp. Você conversa direto comigo, do primeiro contato à publicação.
 - **CTA primário:** Pedir orçamento no WhatsApp → M1
 - **CTA secundário:** Ver projetos → `#projetos`
@@ -123,7 +120,7 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 1. **Conversa.** Você me conta sobre o seu negócio e o que precisa. Não precisa ter nada pronto.
 2. **Proposta.** Envio o escopo, o prazo e o investimento, tudo por escrito e sem letra miúda.
 3. **Criação.** Desenvolvo o site e te mostro prévias para você ajustar o que quiser.
-4. **Publicação.** Coloco o site no ar e te oriento sobre os próximos passos. `TODO(vinicius)`: confirmar se oferece um período de suporte após a entrega e por quanto tempo.
+4. **Publicação.** Coloco o site no ar e te oriento sobre os próximos passos e fico 7 dias à disposição para ajustes.
 
 - **CTA:** Começar pela conversa → M1
 
@@ -131,15 +128,15 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 
 - **Eyebrow:** Sobre mim
 - **H2:** Prazer, eu sou o Vinicius.
-- **Texto (rascunho, completar com a sua história):**
-  > Sou desenvolvedor de sites e trabalho com pequenas e médias empresas de todo o Brasil. Gosto de transformar o que o cliente precisa em páginas simples, rápidas e bonitas, que fazem sentido para quem visita.
+- **Texto (base no seu Workana, para revisar):**
+  > Atuo há mais de 4 anos no mercado digital, unindo design visual e tecnologia. Sou formado como Técnico em Desenvolvimento de Sistemas, com foco em desenvolvimento web (HTML, CSS, JavaScript e integração com bancos de dados SQL).
   >
-  > `TODO(vinicius)`: 2 ou 3 frases sobre a sua trajetória (há quanto tempo cria sites, como começou, o que te motiva). Só com fatos reais.
+  > Já criei landing pages, sistemas web e identidades visuais para clientes de diversos nichos. Meu trabalho une a sensibilidade do design à robustez do código: páginas rápidas, responsivas e alinhadas aos objetivos de quem as contrata.
   >
   > Cuido de cada projeto de perto, do primeiro contato à publicação, e explico tudo sem "tecniquês".
-- **Destaques (opcionais, só com dados reais):** `TODO(vinicius)`, por exemplo nº de projetos entregues ou anos de experiência. Se não houver, a linha não entra.
-- **Tecnologias (linha discreta):** HTML, CSS, JavaScript, React, Astro, Tailwind. `TODO(vinicius)`: confirmar a lista.
-- **Links:** Instagram · GitHub
+- **Destaques:** Mais de 4 anos no mercado digital · Técnico em Desenvolvimento de Sistemas. `TODO(vinicius)`: quer citar um número de projetos entregues? Só com dado exato.
+- **Tecnologias (linha discreta):** HTML, CSS, JavaScript, Astro, Tailwind CSS (React fora da lista por não estar confirmado).
+- **Links:** Instagram (https://www.instagram.com/kamay.png/) · GitHub (https://github.com/Kamay164)
 
 ## 10. Depoimento (oculto até ter conteúdo)
 
@@ -155,17 +152,17 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 1. **Quanto custa um site?**
    Depende do tipo de projeto, da quantidade de páginas e das funcionalidades. Depois de uma conversa rápida, eu envio um orçamento claro e sem compromisso.
 2. **Quanto tempo leva para ficar pronto?**
-   `TODO(vinicius)`: prazo médio (ex.: "Uma landing page costuma ficar pronta em X dias úteis depois que recebo os conteúdos").
+   Uma landing page costuma ficar pronta em 3 a 5 dias úteis depois que recebo os conteúdos. Para um site completo, combinamos o prazo na proposta, conforme o tamanho do projeto.
 3. **Preciso ter textos e fotos prontos?**
-   Não. Se você já tiver, ótimo. Se não, eu te ajudo a organizar o conteúdo e sugiro o que funciona melhor. `TODO(vinicius)`: confirmar se você escreve os textos ou só orienta.
+   Não. Se você já tiver, ótimo. Se não, eu te ajudo a organizar o conteúdo e sugiro o que funciona melhor. Na conversa a gente combina o quanto você quer que eu cuide dos textos.
 4. **Você atende fora da minha cidade?**
    Sim. Atendo empresas de todo o Brasil, 100% online, por WhatsApp e videochamada.
 5. **O site vai aparecer no Google?**
    Eu entrego o site com a parte técnica de SEO bem feita: velocidade, estrutura e informações para o Google. A posição nas buscas também depende da concorrência e do tempo, mas o seu site começa do jeito certo.
 6. **E o domínio e a hospedagem?**
-   `TODO(vinicius)`: explicar como funciona (quem registra o domínio, se existe custo de hospedagem, se há mensalidade).
+   Depende do projeto. Na conversa eu explico as opções (domínio próprio, hospedagem e possíveis custos) e deixo tudo por escrito na proposta, para você saber o que paga e por quê.
 7. **Vou conseguir fazer alterações depois?**
-   `TODO(vinicius)`: explicar a política de ajustes e manutenção depois da entrega.
+   Sim. Depois da entrega você tem 7 dias para pedir ajustes sem custo. Passado esse período, novos ajustes são orçados à parte, de forma clara e sem surpresa.
 8. **O site funciona no celular?**
    Sim. Todo site é feito primeiro para o celular e testado em diferentes tamanhos de tela.
 
@@ -200,14 +197,14 @@ Páginas extras: `/politica-de-privacidade` (Etapa 7) e `404`.
 
 - Logo negativo (rodapé marinho) ou padrão (rodapé claro): decidir na Etapa 4
 - Frase: Sites e landing pages para empresas de todo o Brasil.
-- Contato: WhatsApp `TODO(vinicius): número` · viniciuskamay123@gmail.com
+- Contato: WhatsApp (37) 99993-5176 · viniciuskamay123@gmail.com
 - Redes: Instagram · GitHub
 - Links: Projetos · Serviços · Dúvidas · Política de Privacidade
 - Linha final: © {ano atual} Vinicius Kamay. Todos os direitos reservados.
 
 ## 14. Mensagens de WhatsApp (pré-preenchidas)
 
-Número: `TODO(vinicius)`, no formato internacional sem símbolos (ex.: `55DDNNNNNNNNN`).
+Número: `5537999935176` (formato internacional sem símbolos: 55 + DDD + número).
 
 | Código | Onde | Mensagem |
 |---|---|---|
@@ -222,7 +219,7 @@ Número: `TODO(vinicius)`, no formato internacional sem símbolos (ex.: `55DDNNN
 - **Botão flutuante (aria-label):** "Falar com Vinicius no WhatsApp"
 - **Link externo (sufixo para leitores de tela):** "(abre em nova aba)"
 - **404:** H1 "Essa página não existe." · Texto "O link pode estar errado ou a página mudou de lugar." · Botão "Voltar para o início"
-- **Alt da foto:** "Vinicius Kamay, desenvolvedor de sites, sorrindo em fundo azul"
+- **Alt da foto:** "Retrato de Vinicius Kamay, desenvolvedor de sites, em fundo azul"
 - **Alt dos prints:** "Página inicial do site {nome} no computador e no celular"
 
 ## 16. Política de Privacidade (estrutura; texto final na Etapa 7)
@@ -233,15 +230,16 @@ Quais dados o formulário coleta (nome, WhatsApp, e-mail, mensagem) · finalidad
 
 ## Pendências do Vinicius (checklist)
 
-- [ ] Escolher o H1 do hero (A, B ou C)
-- [ ] Número de WhatsApp
-- [ ] Link do GitHub
-- [ ] Trajetória para a seção "Sobre" (2 ou 3 frases reais) e destaques numéricos, se houver
-- [ ] Confirmar a lista de tecnologias
+- [x] Escolher o H1 do hero
+- [x] Número de WhatsApp
+- [x] Link do GitHub
+- [ ] Revisar o texto de "Sobre" (base no Workana) e decidir se cito um número de projetos
+- [x] Confirmar a lista de tecnologias (sem React)
+- [x] "Identidade visual" não entra como serviço (mantidos os 4)
 - [ ] Confirmar a descrição do Conversor PDF e se o site é público
 - [ ] Depoimento da Tecno (texto, nome, cargo e autorização)
-- [ ] Prazo médio de entrega (FAQ 2)
-- [ ] Você escreve os textos ou só orienta? (FAQ 3)
-- [ ] Domínio, hospedagem e mensalidade (FAQ 6)
-- [ ] Política de ajustes e suporte após a entrega (FAQ 7 e Processo 4)
+- [x] Prazo médio de entrega (3 a 5 dias úteis para landing page)
+- [x] Textos: combinado na conversa (resposta genérica)
+- [x] Domínio e hospedagem: "depende do projeto" (resposta genérica)
+- [x] Ajustes: 7 dias sem custo, depois orçado à parte
 - [ ] Prazo de resposta do contato (opcional)
